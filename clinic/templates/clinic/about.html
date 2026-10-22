@@ -1,0 +1,87 @@
+{% extends 'clinic/base.html' %}
+{% load static %}
+
+{% block title %}About Dr. G.G. Shetty | GGS Medical Clinic{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+  <p class="eyebrow">Cardiology &amp; clinical leadership</p>
+  <h1>About Dr. G.G. Shetty</h1>
+  <p>Professional background, experience, and areas of specialization.</p>
+</div>
+
+<div class="about-layout section-wrap">
+  <aside class="doctor-profile">
+    <div class="about-image-wrap">
+      <img class="about-image" src="{% static 'clinic/images/about_page.jpeg' %}" alt="Dr. G.G. Shetty">
+      <div class="image-fallback" hidden aria-hidden="true">Dr. G.G. Shetty</div>
+    </div>
+    <div class="profile-copy">
+      <h2>Dr. G.G. Shetty</h2>
+      <p class="profile-role">Professor &amp; Head of Department, Cardiology</p>
+      <p class="profile-institution">Ramaiah Medical College (RMC), Bangalore</p>
+      <p class="profile-label">Senior Consultant &amp;</p>
+      <p class="profile-role">Interventional Cardiologist</p>
+      <p class="profile-institution">Ramaiah Memorial Hospital, Bangalore</p>
+      <p class="profile-summary">Currently leading the Department of Cardiology at Ramaiah Medical College while actively practicing as a Senior Interventional Cardiologist, specialising in Coronary Angiography and Angioplasty.</p>
+    </div>
+  </aside>
+
+  <div class="about-sections">
+    <section class="content-section">
+      <p class="eyebrow">Education</p>
+      <h2>Education &amp; Qualifications</h2>
+      <ul class="detail-list">
+        <li><strong>MBBS</strong><span>Karnataka Medical College, Hubli</span></li>
+        <li><strong>MD General Medicine</strong><span>MR Medical College, Gulbarga</span></li>
+        <li><strong>DM Cardiology</strong><span>IMS BHU, Varanasi (Institute of Medical Sciences, Banaras Hindu University)</span></li>
+        <li><strong>TAVI Training</strong><span>University Hospitals, Cleveland Medical Center, USA</span></li>
+        <li><strong>Fellowships</strong><span>Awarded 3 Fellowships in Cardiology</span></li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <p class="eyebrow">Clinical &amp; academic work</p>
+      <h2>Experience</h2>
+      <p class="experience-total">30+ years of clinical and academic experience in Cardiology</p>
+      <ul class="experience-list">
+        <li><strong>JSS Medical College, Mysore</strong> — Assistant Professor in Medicine</li>
+        <li><strong>JN Medical College, Belgaum</strong></li>
+        <li><strong>NIMS, Hyderabad</strong> — Senior Resident, Cardiology</li>
+        <li><strong>G.B. Pant Hospital, New Delhi</strong> — Training in Cardiac Cathlab &amp; Colour Doppler Echocardiography (3 months) as part of DM Cardiology</li>
+        <li><strong>St. John's Medical College, Bangalore</strong> — Lecturer → Assistant Professor → Associate Professor → Professor</li>
+        <li><strong>Belhoul Apollo, Dubai</strong> — Founder Cardiologist</li>
+        <li><strong>Narayana Health, Bangalore</strong> — Senior Consultant, Interventional Cardiologist &amp; Academic Coordinator</li>
+        <li><strong>Currently:</strong> Professor &amp; Head of Department, Cardiology — Ramaiah Medical College (RMC), Bangalore; Senior Consultant Interventional Cardiologist — Ramaiah Memorial Hospital, Bangalore</li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <p class="eyebrow">Areas of practice</p>
+      <h2>Specializations</h2>
+      <h3 class="list-label">Currently Performing</h3>
+      <ul class="tag-list tag-list-current">
+        <li>Coronary Angiography</li><li>Angioplasty (PTCA)</li>
+      </ul>
+      <h3 class="list-label list-label-muted">Also Performed Throughout Career</h3>
+      <ul class="tag-list">
+        <li>TAVI</li><li>Pacemaker Implantation</li><li>Mitral Valvuloplasty (PTMC)</li>
+        <li>Device Closure of ASD &amp; PDA</li><li>Peripheral Angioplasty</li><li>Tumour Embolisation</li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <p class="eyebrow">Research &amp; scholarship</p>
+      <h2>Academic &amp; Research Excellence</h2>
+      <dl class="research-grid">
+        <div><dt>16</dt><dd>Publications</dd></div>
+        <div><dt>15+</dt><dd>Years of Clinical Research</dd></div>
+        <div><dt>10</dt><dd>Conference Presentations</dd></div>
+        <div><dt>22</dt><dd>International Conferences Attended</dd></div>
+        <div><dt>30</dt><dd>Abstracts &amp; Indexed Journals</dd></div>
+        <div><dt>3</dt><dd>Thesis Works</dd></div>
+      </dl>
+    </section>
+  </div>
+</div>
+{% endblock %}

@@ -1,15 +1,14 @@
 <!--
 Sync Impact Report
-Version change: 1.0.0 -> 1.1.0 (expanded evidence guidance and resolved Django direction).
-Modified principles: II. Evidence-Based Requirements (UI evidence is not backend proof);
-V. Clear Frontend/Backend Responsibilities (Django/Python required by updated reference;
-React is reference-only, not a required runtime).
-Updated section: Evidence and Open Questions, based on the now-populated oldui.txt.
+Version change: 1.0.0 -> 1.1.0 (expanded guidance and confirmed project decisions).
+Modified principles: I. User Workflows First (phone-only booking and manual staff process);
+III. Privacy and Security (no online patient-data collection);
+V. Clear Frontend/Backend Responsibilities (Django Templates and Tailwind CSS confirmed).
+Updated section: Evidence and Open Questions (UI reference, owner confirmations, asset mapping).
 Added sections: none. Removed sections: none.
 Dependent templates and commands: unchanged; they read this constitution at runtime.
-Deferred clarifications: booking and service-detail behavior, shared navigation and staff scope,
-styling/template approach, image mapping, publication accuracy, and data/access requirements.
-No template placeholders remain. Ratification date preserved.
+Deferred clarifications: appointment contact presentation and service "Learn more" behavior.
+No template placeholders remain. Original ratification date preserved.
 -->
 
 # GGS Medical Clinic Constitution
@@ -21,6 +20,9 @@ No template placeholders remain. Ratification date preserved.
 Design around agreed tasks for clinic visitors and staff. Preserve workflows verified in the
 old UI unless an explicit change is approved. Every feature MUST trace to a confirmed need
 or an agreed proposal; do not invent screens, features, wording, or workflows to fill gaps.
+Booking MUST be by telephone using the two published clinic numbers, not a digital calendar
+or public booking form. The receptionist's manual recording of patient names, phone numbers,
+and appointment times is outside the website; do not add staff software for this process.
 
 ### II. Evidence-Based Requirements
 
@@ -28,8 +30,6 @@ Inspect available UI source, screenshots, documentation, and project files befor
 decisions. Requirements MUST distinguish repository facts, assumptions, and proposed decisions,
 with references for facts. Record missing or incomplete evidence and obtain clarification of
 important ambiguities before implementing affected behavior; never present inference as fact.
-UI reference code establishes supplied design and content, not working integrations, backend
-contracts, authorization, or the accuracy of medical and contact claims.
 
 ### III. Privacy and Security
 
@@ -37,6 +37,9 @@ Treat health and personal information as sensitive. Collect only data necessary 
 workflow, enforce least-privilege access on the server, and keep secrets out of source control.
 Logs and error messages MUST NOT expose sensitive information. Legal or regulatory compliance
 MUST NOT be claimed without confirmed requirements and appropriate review.
+The initial website MUST NOT solicit, collect, or store patient names, phone numbers, appointment
+details, or health information online. The manual telephone process does not authorize online
+data collection. Any future expansion requires explicit approval and a privacy/security review.
 
 ### IV. Accessible, Responsive Interface
 
@@ -47,13 +50,12 @@ layout rather than relying on appearance alone.
 
 ### V. Clear Frontend/Backend Responsibilities
 
-Use Django/Python, as directed by `oldui.txt`, and translate the supplied React UI reference
-without requiring React as an application runtime. Keep browser presentation and interaction
-separate from server-side business rules, data access, validation, and authorization. Do not
-infer backend connections from the reference code. Confirm the Django rendering approach and
-styling tools before scaffolding; Tailwind-style classes in a reference do not by themselves
-approve Tailwind CSS as a dependency. VS Code extensions are development tools, never runtime
-dependencies.
+Use Django/Python with Django Templates for HTML structure and Tailwind CSS for styling.
+The React code in `oldui.txt` is a UI reference, not a required runtime or a backend contract.
+Keep browser presentation and interaction separate from server-side business rules, data access,
+validation, and authorization where applicable. Do not invent backend integrations or patient
+storage for this informational site. VS Code extensions are development tools, never application
+runtime dependencies.
 
 ### VI. Maintainable, Testable Changes
 
@@ -77,26 +79,32 @@ work. Example configuration MUST use safe placeholders, never real secrets or pe
 
 ## Evidence and Open Questions
 
-Current evidence: `oldui.txt` supplies React UI snippets for Home, About, Services, and Contact,
-and explicitly requests translation to Django/Python for UI purposes, not reuse of backend
-connections. It records reference layout, copy, service listings, contact details, hours, a
-map embed, and links to `/appointment` and `/services`. Preserve these as the design/content
-baseline unless an explicit change is agreed; their presence does not prove production behavior
-or factual accuracy. `landing_page_hero.jpeg` and `about_page.jpeg` are portrait assets, not
-rendered UI screenshots. No runnable application or runtime dependency manifest is available.
+Repository evidence: `oldui.txt` supplies React UI snippets for Home, About, Services, and
+Contact and directs their translation to Django/Python for UI purposes, not backend reuse.
+It is the design/content baseline, not proof of working integrations. The two JPEGs are portrait
+assets, not rendered UI screenshots. No runnable application or runtime dependency manifest
+is present in the inspected repository.
 
-Resolve the following before implementing the affected scope:
+Project-owner decisions confirmed on 2026-10-20:
 
-- What must the appointment links do? No appointment page, form, confirmation, availability,
-	or booking integration is supplied. Service "Learn more" buttons have no defined action.
-- What shared navigation, remaining screens, and staff workflows, if any, are in scope?
-	These are not supplied; request references or explicit decisions before implementing them.
-- Which Django rendering approach and styling tools are agreed? Tailwind CSS remains unconfirmed.
-- Do the supplied portraits map to the reference paths `/gg_shetty_pic.jpeg` and
-	`/gg_shetty2_pic.jpeg`? Confirm asset use and verify medical claims, contact details, hours,
-	and the embedded map destination before publication.
-- Will any agreed workflow collect personal or health information? If so, confirm necessary
-	fields, access roles, retention/deletion rules, and applicable legal/review requirements.
+- Agreed navigation: Home, About the doctor, Services, and Contact. Booking is by telephone;
+	display both reception/booking numbers from the reference: +91 99459 88815 and
+	+91 080 2653 4899. Do not infer an online booking workflow from the old `/appointment` links.
+- The receptionist receives calls and manually records names, phone numbers, and appointment
+	times. No patient-data entry, staff dashboard, or digital appointment management is in scope.
+- Django Templates and Tailwind CSS are confirmed; React is reference-only.
+- Use `landing_page_hero.jpeg` in the Home hero and `about_page.jpeg` on the About page.
+	The old `/gg_shetty_pic.jpeg` and `/gg_shetty2_pic.jpeg` paths MUST NOT be reused.
+- The owner confirms the reference medical claims, contact details, hours, and embedded map
+	destination are accurate and unchanged. This is owner confirmation, not independent verification
+	or a legal/regulatory compliance assessment.
+-  What must the Services "Learn more" buttons do -  they must be removed. No action is supplied.
+
+Remaining decisions to resolve before implementing the affected UI:
+
+- How will appointment contact information be presented: prominently on Home, in a dedicated
+	section/page, or through a persistent header button opening a popup with both numbers?
+	These are alternatives, not approved additional pages or controls; do not choose silently.
 
 Record answers and their evidence in the relevant specification or decision record. An open
 question is not authorization to choose a default or implement an unapproved capability.

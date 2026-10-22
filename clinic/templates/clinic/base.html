@@ -1,0 +1,73 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}GGS Medical Clinic{% endblock %}</title>
+  <meta name="description" content="Heart care information for Dr. G.G. Shetty's clinic in Jayanagar, Bengaluru.">
+  <link rel="stylesheet" href="{% static 'clinic/css/site.css' %}">
+  <script src="{% static 'clinic/js/appointment.js' %}"></script>
+</head>
+<body class="min-h-screen bg-white font-sans text-slate-800 antialiased">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="{% url 'clinic:home' %}" aria-label="GGS Medical Clinic home">
+        <span class="brand-mark" aria-hidden="true">G</span>
+        <span class="brand-name">GGS <span>Medical Clinic</span></span>
+      </a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <a href="{% url 'clinic:home' %}" {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>Home</a>
+        <a href="{% url 'clinic:about' %}" {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>About the doctor</a>
+        <a href="{% url 'clinic:services' %}" {% if request.resolver_match.url_name == 'services' %}aria-current="page"{% endif %}>Services</a>
+        <a href="{% url 'clinic:contact' %}" {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>Contact</a>
+      </nav>
+      <button class="button button-primary header-booking" type="button" data-open-appointment>
+        Book Appointment
+      </button>
+    </div>
+  </header>
+  <main id="main-content" tabindex="-1">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>GGS Medical Clinic <span aria-hidden="true">·</span> Heart Care Centre, Jayanagar, Bengaluru</p>
+      <p>For appointments, please call reception.</p>
+    </div>
+  </footer>
+
+  <dialog class="appointment-dialog" id="appointment-dialog" aria-labelledby="appointment-title" aria-describedby="appointment-instructions">
+    <div class="dialog-content">
+      <div class="dialog-heading-row">
+        <div>
+          <p class="eyebrow">Reception &amp; booking</p>
+          <h2 id="appointment-title">Book an appointment by phone</h2>
+        </div>
+        <button class="icon-button dialog-close" type="button" data-close-appointment aria-label="Close appointment information">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <p id="appointment-instructions" class="dialog-instructions">Call reception to arrange your consultation. The website does not take bookings.</p>
+      <ul class="phone-list">
+        <li class="phone-row">
+          <a href="tel:+919945988815" class="phone-number" data-phone-number>+91 99459 88815</a>
+          <button class="icon-button copy-button" type="button" data-copy-phone="+91 99459 88815" aria-label="Copy mobile reception number" title="Copy mobile reception number">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg>
+          </button>
+          <span class="copy-status" aria-live="polite" aria-atomic="true"></span>
+        </li>
+        <li class="phone-row">
+          <a href="tel:+9108026534899" class="phone-number" data-phone-number>+91 080 2653 4899</a>
+          <button class="icon-button copy-button" type="button" data-copy-phone="+91 080 2653 4899" aria-label="Copy landline reception number" title="Copy landline reception number">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg>
+          </button>
+          <span class="copy-status" aria-live="polite" aria-atomic="true"></span>
+        </li>
+      </ul>
+      <p class="dialog-footnote">If copying is unavailable, select the number to copy it manually.</p>
+    </div>
+  </dialog>
+</body>
+</html>

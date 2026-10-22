@@ -1,0 +1,12 @@
+{
+  "name": "ggs-medical-clinic",
+  "private": true,
+  "scripts": {
+    "css:build": "tailwindcss -i ./clinic/static/clinic/css/input.css -o ./clinic/static/clinic/css/site.css --minify",
+    "css:watch": "tailwindcss -i ./clinic/static/clinic/css/input.css -o ./clinic/static/clinic/css/site.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.0",
+    "tailwindcss": "4.3.0"
+  }
+}

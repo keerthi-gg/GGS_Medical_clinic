@@ -1,0 +1,46 @@
+{% extends 'clinic/base.html' %}
+{% load static %}
+
+{% block title %}Home | GGS Medical Clinic{% endblock %}
+
+{% block content %}
+<section class="home-hero">
+  <div class="hero-copy">
+    <p class="eyebrow">Expert cardiac care</p>
+    <h1>Advanced Heart Care <span>You Can Trust.</span></h1>
+    <p class="hero-description">Dr. G.G. Shetty — Professor, HOD Cardiology at Ramaiah Medical College, and Senior Interventional Cardiologist — brings 30+ years of expertise in world-class, personalized heart care.</p>
+    <div class="hero-actions">
+      <button class="button button-primary" type="button" data-open-appointment>Book an Appointment</button>
+      <a class="button button-secondary" href="{% url 'clinic:services' %}">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-image-wrap">
+    <img class="hero-image" src="{% static 'clinic/images/landing_page_hero.jpeg' %}" alt="Dr. G.G. Shetty">
+    <div class="image-fallback" hidden aria-hidden="true">Dr. G.G. Shetty</div>
+  </div>
+</section>
+
+<section class="highlights section-wrap" aria-label="Clinic highlights">
+  <article class="highlight-item">
+    <span class="highlight-symbol" aria-hidden="true">01</span>
+    <div><h2>Senior Specialist</h2><p>Professor &amp; Head of Department, Cardiology at Ramaiah Medical College with decades of clinical leadership.</p></div>
+  </article>
+  <article class="highlight-item">
+    <span class="highlight-symbol" aria-hidden="true">02</span>
+    <div><h2>Interventional Expertise</h2><p>Specialist in Coronary Angiography and Angioplasty with advanced training at Cleveland Medical Center, USA.</p></div>
+  </article>
+  <article class="highlight-item">
+    <span class="highlight-symbol" aria-hidden="true">03</span>
+    <div><h2>Evening Consultations</h2><p>Clinic hours: Monday – Friday, 6:00 PM to 8:30 PM. To book, call the clinic reception.</p></div>
+  </article>
+</section>
+
+<section class="home-cta">
+  <div class="home-cta-inner">
+    <p class="eyebrow eyebrow-light">Care with experience</p>
+    <h2>Ready to take care of your heart?</h2>
+    <p>Schedule a consultation with Dr. G.G. Shetty by calling reception.</p>
+    <button class="button button-light" type="button" data-open-appointment>View appointment numbers</button>
+  </div>
+</section>
+{% endblock %}
